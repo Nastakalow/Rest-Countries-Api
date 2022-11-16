@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/main.js" defer></script>
+    <title>Countries Info</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-container">
+        <h1 class="logo">Where is the world?</h1>
+
+        <button id="darkMode" class="theme-content">
+          <ion-icon id="moonIcon" class="moon-icon" name="moon"></ion-icon>
+          Dark Mode
+        </button>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="section-header">
+        <div class="search-content">
+          <button id="searchButton">
+            <ion-icon
+              id="searchIcon"
+              class="search-icon"
+              name="search-sharp"
+            ></ion-icon>
+          </button>
+          <input
+            class="search-input"
+            id="searchInput"
+            type="text"
+            placeholder="Search for a country..."
+          />
+        </div>
+
+        <div class="select-container">
+          <div id="selectTitle">
+            Filter by Region
+            <ion-icon name="chevron-down-outline"></ion-icon>
+          </div>
+          <div id="selectSubtitle" class="select-hidden">
+            <ul>
+              <li class="select-region">Africa</li>
+              <li class="select-region">America</li>
+              <li class="select-region">Asia</li>
+              <li class="select-region">Europe</li>
+              <li class="select-region">Oceania</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-main"></div>
+    </section>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
