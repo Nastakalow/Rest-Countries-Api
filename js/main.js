@@ -11,7 +11,7 @@ $(document).ready(function () {
   });
 
   $("#selectTitle").on("click", () => {
-    $("#selectSubtitle").toggleClass("select-hidden");
+    $("#selectSubtitle").toggleClass("hidden");
   });
 
   function createCountryCard(
@@ -61,7 +61,7 @@ $(document).ready(function () {
           country.region,
           country.capital
         );
-        $(".section-main").append(countryCard);
+        $(".home-main").append(countryCard);
       }
     });
   }
@@ -71,11 +71,11 @@ $(document).ready(function () {
   $(".select-region").on("click", function () {
     getApiData("/region/" + $(this).text().trim());
 
-    $("#selectSubtitle").addClass("select-hidden");
+    $("#selectSubtitle").addClass("hidden");
     $("#selectTitle").html(
       $(this).text() + `<ion-icon name="chevron-down-outline"></ion-icon>`
     );
-    $(".section-main").empty();
+    $(".home-main").empty();
   });
 
   $("#searchButton").on("click", function (e) {
@@ -85,26 +85,41 @@ $(document).ready(function () {
 
     let countryName = $("#searchInput").val();
     getApiData("/name/" + countryName);
-    $(".section-main").empty();
+    $("#selectTitle").html(
+      `Filter by Region <ion-icon name="chevron-down-outline"></ion-icon>`
+    );
+    $(".home-main").empty();
   });
 
   $("#searchInput").on("keypress", function (e) {
     if (!$("#searchInput").val().trim()) {
       return;
     }
-
     if (e.keyCode == 13) {
       let countryName = $("#searchInput").val();
       getApiData("/name/" + countryName);
-      $(".section-main").empty();
+      $("#selectTitle").html(
+        `Filter by Region <ion-icon name="chevron-down-outline"></ion-icon>`
+      );
+      $(".home-main").empty();
     }
   });
 
+  $(".logo").on("click", function () {
+    getApiData("/all");
+    $(".home-main").empty();
+
+    $(".section-home").removeClass("hidden");
+    $(".section-detail").addClass("hidden");
+  });
+
   $(document).on("click", ".country-container", function () {
-    window.location.href = "../country-info.html";
+    $(".section-home").addClass("hidden");
+    $(".section-detail").removeClass("hidden");
   });
 
   $("#backBtn").on("click", function () {
-    window.location.href = "../index.html";
+    $(".section-home").removeClass("hidden");
+    $(".section-detail").addClass("hidden");
   });
 });

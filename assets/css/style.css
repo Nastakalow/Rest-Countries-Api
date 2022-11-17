@@ -55,9 +55,10 @@ button {
   margin: 0 auto;
 }
 
-.header .logo {
-  font-size: 2rem;
+.logo {
+  font-size: 2.4rem;
   font-weight: 800;
+  cursor: pointer;
 }
 
 .theme-content {
@@ -68,16 +69,18 @@ button {
   border: none;
   color: var(--text);
   background: transparent;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-weight: 500;
   cursor: pointer;
 }
 
 .moon-icon {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
 }
 
-.section {
+/* SECTION HOME */
+
+.section-home {
   width: 90%;
   margin: 3.6rem auto;
 }
@@ -92,7 +95,7 @@ button {
   margin-bottom: 7.2rem;
 }
 
-.search-content {
+.search-container {
   padding: 1.28rem 1.92rem;
   background-color: var(--bg-other);
   border-radius: 0.48rem;
@@ -147,12 +150,12 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  letter-spacing: 0.05rem;
   padding: 1.8rem;
   cursor: pointer;
 }
 
-.select-hidden {
+.hidden {
   display: none;
 }
 
@@ -163,22 +166,23 @@ button {
   border-radius: 0.5rem;
   width: 18rem;
   background-color: var(--bg-other);
+  letter-spacing: 0.05rem;
   cursor: pointer;
 }
 
-#selectSubtitle ul li {
+.select-region {
   padding: 1.2rem 1.8rem;
 }
 
-#selectSubtitle ul li:hover {
+.select-region:hover {
   background: var(--select-hover);
 }
 
-.section-main {
+.home-main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 3rem;
+  gap: 5rem;
 }
 
 .country-container {
@@ -242,7 +246,7 @@ button {
   opacity: 0.7;
 }
 
-/* COUNTRY INFO PAGE */
+/* SECTION DETAILS */
 
 #backBtn {
   padding: 0.6rem 3.2rem;
@@ -261,52 +265,50 @@ button {
   margin-right: 0.4rem;
 }
 
-.section-country-info {
+.section-detail {
   width: 90%;
   margin: 6.2rem auto;
 }
 
-.section-country-info-main {
+.detail-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.img-flag-country-info {
+.img-detail {
   width: 48rem;
   height: 30rem;
 }
 
-.name-country-info {
-  font-size: 2.4rem;
-  font-weight: var(--title-weight);
-  margin-bottom: 2.4rem;
+.detail-content {
   color: var(--text);
 }
 
-.country-info {
+.detail-content h2 {
+  font-size: 2.4rem;
+  font-weight: var(--title-weight);
+  margin-bottom: 2.4rem;
+}
+
+.detail-content .country-info {
   display: flex;
   gap: 12.8rem;
 }
 
-.country-info ul li {
-  color: var(--text);
-  font-weight: var(--subtitle-weight);
-}
-
-.border-countries-content {
+.border-container {
   display: flex;
   align-items: center;
   gap: 1.4rem;
   margin-top: 3.6rem;
 }
 
-.border-countries-content h3 {
+.border-container h3 {
   color: var(--text);
   font-size: 1.4rem;
 }
 
-.border-country-btn {
+.border-button {
   margin-right: 1.2rem;
   font-size: 1.2rem;
   border: none;
@@ -317,8 +319,8 @@ button {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
-@media only screen and (max-width: 522px) {
-  .section-main {
+@media only screen and (max-width: 544px) {
+  .home-main {
     justify-content: center;
   }
 
@@ -330,25 +332,25 @@ button {
     margin-bottom: 3.6rem;
   }
 
-  .border-countries-content {
+  .border-container {
     align-items: flex-start;
     flex-direction: column;
   }
 
-  .img-flag-country-info {
+  .img-detail {
     width: 34rem;
     height: 20rem;
   }
 }
 
 @media only screen and (max-width: 736px) {
-  .search-content {
+  .search-container {
     width: 100%;
   }
 }
 
 @media only screen and (max-width: 1100px) {
-  .section-country-info-main {
+  .detail-container {
     align-items: flex-start;
     flex-direction: column;
     row-gap: 6.2rem;
