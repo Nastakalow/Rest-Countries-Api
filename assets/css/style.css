@@ -50,7 +50,7 @@ body {
   margin: 0 auto;
 }
 
-.header h1 {
+.header .logo {
   font-size: 2rem;
   font-weight: 800;
 }
@@ -107,6 +107,7 @@ body {
 }
 
 .search-input {
+  width: 100%;
   font-family: "Nunito Sans", sans-serif;
   color: var(--input-text);
   background: transparent;
@@ -170,7 +171,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  row-gap: 3rem;
+  gap: 3rem;
 }
 
 .country-container {
@@ -216,4 +217,36 @@ body {
 .country-info ul li span {
   color: var(--text);
   opacity: 0.7;
+}
+
+@media only screen and (max-width: 799px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media only screen and (max-width: 639px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 3rem;
+  }
+
+  .section-header {
+    overflow: hidden;
+  }
+
+  .search-content {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 522px) {
+  .section-main {
+    justify-content: center;
+  }
 }
