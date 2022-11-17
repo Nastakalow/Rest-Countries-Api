@@ -46,7 +46,12 @@ $(document).ready(function () {
   function getApiData(params) {
     $.ajax({
       url: queryURL + params,
+      error: function () {
+        let thrownErrorMsg = `<strong class="not-found">Sorry! No result found :( <span>We can't find any item matching your search</span></strong>`; // Create with DOM
+        $(".section").append(thrownErrorMsg);
+      },
     }).then((res) => {
+      $(".not-found").remove();
       for (const country of res) {
         let countryCard = createCountryCard(
           country.flags.png,
@@ -64,22 +69,42 @@ $(document).ready(function () {
   getApiData("/all");
 
   $(".select-region").on("click", function () {
+    getApiData("/region/" + $(this).text().trim());
+
     $("#selectSubtitle").addClass("select-hidden");
-    getApiData("/region/" + $(this).text());
+    $("#selectTitle").html(
+      $(this).text() + `<ion-icon name="chevron-down-outline"></ion-icon>`
+    );
     $(".section-main").empty();
   });
 
   $("#searchButton").on("click", function (e) {
+    if (!$("#searchInput").val().trim()) {
+      return;
+    }
+
     let countryName = $("#searchInput").val();
     getApiData("/name/" + countryName);
     $(".section-main").empty();
   });
 
   $("#searchInput").on("keypress", function (e) {
+    if (!$("#searchInput").val().trim()) {
+      return;
+    }
+
     if (e.keyCode == 13) {
       let countryName = $("#searchInput").val();
       getApiData("/name/" + countryName);
       $(".section-main").empty();
     }
+  });
+
+  $(document).on("click", ".country-container", function () {
+    window.location.href = "../country-info.html";
+  });
+
+  $("#backBtn").on("click", function () {
+    window.location.href = "../index.html";
   });
 });
