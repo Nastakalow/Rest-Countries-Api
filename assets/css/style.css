@@ -64,7 +64,7 @@ button {
 .theme-content {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.7rem;
 
   border: none;
   color: var(--text);
@@ -75,7 +75,11 @@ button {
 }
 
 .moon-icon {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
+}
+
+.moon-icon[name="sunny-outline"] {
+  font-size: 1.9rem;
 }
 
 /* SECTION HOME */
@@ -249,7 +253,8 @@ button {
 /* SECTION DETAILS */
 
 #backBtn {
-  padding: 0.6rem 3.2rem;
+  position: relative;
+  padding: 0.6rem 3.2rem 0.6rem 4.4rem;
   margin-bottom: 6.4rem;
   font-size: 1.4rem;
   border-radius: 0.5rem;
@@ -260,9 +265,11 @@ button {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
-#backBtn span {
-  font-size: 1.8rem;
-  margin-right: 0.4rem;
+#backBtn .icon-arrow {
+  position: absolute;
+  top: 50%;
+  left: 2.2rem;
+  transform: translate(0, -50%);
 }
 
 .section-detail {
@@ -273,27 +280,34 @@ button {
 .detail-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .img-detail {
-  width: 48rem;
-  height: 30rem;
+  width: 50rem;
+  height: 32rem;
+  margin-right: auto;
 }
 
 .detail-content {
   color: var(--text);
+  margin-right: auto;
 }
 
 .detail-content h2 {
-  font-size: 2.4rem;
-  font-weight: var(--title-weight);
-  margin-bottom: 2.4rem;
+  font-size: 3rem;
+  margin-bottom: 3.2rem;
+  font-weight: 800;
 }
 
 .detail-content .country-info {
   display: flex;
   gap: 12.8rem;
+}
+
+.detail-content .country-info ul li {
+  font-size: 1.4rem;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.05rem;
 }
 
 .border-container {
@@ -338,8 +352,8 @@ button {
   }
 
   .img-detail {
-    width: 34rem;
-    height: 20rem;
+    width: 32rem;
+    height: 16rem;
   }
 }
 
@@ -349,7 +363,7 @@ button {
   }
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1200px) {
   .detail-container {
     align-items: flex-start;
     flex-direction: column;
