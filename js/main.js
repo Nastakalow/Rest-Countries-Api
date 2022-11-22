@@ -14,6 +14,28 @@ $(document).ready(function () {
 
   getApiData("/all");
 
+  function createLanguageElement(obj) {
+    let str = "";
+    for (const item in obj) {
+      str += obj[item] + ", ";
+    }
+    $(".country-info ul:last-child li:last-child span").append(
+      str.slice(0, -2)
+    );
+  }
+
+  function createBorderButtons(arr) {
+    for (const item of arr) {
+      $.ajax({
+        url: queryURL + "/alpha/" + item,
+      }).then((country) => {
+        var borderCountry = country[0].name.common;
+        var button = `<button class="border-button" data-country-name="${borderCountry}">${borderCountry}</button>`;
+        $(".border-buttons").append(button);
+      });
+    }
+  }
+
   function createCountryCard(
     countryImage,
     countryImageName,
@@ -69,15 +91,12 @@ $(document).ready(function () {
           <ul>
             <li>Top Level Domain: <span>${tld}</span></li>
             <li>Currencies: <span>${currencies}</span></li>
-            <li>Languages: <span>France, English, Germany</span></li>
+            <li>Languages: <span></span></li>
           </ul>
         </div>
         <div class="border-container">
           <h3>Border Countries:</h3>
           <div class="border-buttons">
-            <button class="border-button">France</button>
-            <button class="border-button">Germany</button>
-            <button class="border-button">Netherlands</button>
           </div>
         </div>
       </div>
@@ -130,7 +149,17 @@ $(document).ready(function () {
             country.tld,
             currencies
           );
+          $(".border-buttons").empty();
+          $(".detail-container").empty();
           $(".detail-container").append(countryDetail);
+
+          if (country.borders) {
+            createBorderButtons(country.borders);
+          } else {
+            $(".border-container").remove();
+          }
+
+          createLanguageElement(country.languages);
         }
       }
     });
@@ -194,5 +223,9 @@ $(document).ready(function () {
   $("#backBtn").on("click", function () {
     $(".section-home").removeClass("hidden");
     $(".section-detail").addClass("hidden");
+  });
+
+  $(document).on("click", ".border-button", function () {
+    getApiData(`/name/${$(this).data("country-name")}`);
   });
 });

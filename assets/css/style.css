@@ -280,6 +280,7 @@ button {
 .detail-container {
   display: flex;
   align-items: center;
+  gap: 3rem;
 }
 
 .img-detail {
@@ -301,7 +302,7 @@ button {
 
 .detail-content .country-info {
   display: flex;
-  gap: 12.8rem;
+  column-gap: 12.8rem;
 }
 
 .detail-content .country-info ul li {
@@ -322,6 +323,12 @@ button {
   font-size: 1.4rem;
 }
 
+.border-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+}
+
 .border-button {
   margin-right: 1.2rem;
   font-size: 1.2rem;
@@ -333,31 +340,31 @@ button {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
-@media only screen and (max-width: 544px) {
-  .home-main {
-    justify-content: center;
-  }
-
-  .country-info {
-    display: block;
-  }
-
-  .country-info ul:first-child {
-    margin-bottom: 3.6rem;
-  }
-
+@media only screen and (max-width: 503px) {
   .border-container {
     align-items: flex-start;
     flex-direction: column;
   }
 
+  .detail-content .country-info {
+    flex-direction: column;
+  }
+
   .img-detail {
-    width: 32rem;
-    height: 16rem;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 544px) {
+  .home-main {
+    justify-content: center;
   }
 }
 
 @media only screen and (max-width: 736px) {
+  html {
+    font-size: 50%;
+  }
   .search-container {
     width: 100%;
   }
